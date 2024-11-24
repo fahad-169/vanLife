@@ -1,21 +1,19 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-
-function About() {
-    return <h1>ABOUT Page</h1>;
-}
-
-function Home() {
-    return <h1>HOME Page</h1>;
-}
+import About from "./pages/About";
+import Home from "./pages/Home";
 
 function App() {
     return (
         <BrowserRouter>
-            <nav>
-                <Link to="/">Home</Link>
-                <Link to="/about">About</Link>
-            </nav>
+            <header>
+                <Link className="site-logo" to="/">
+                    #VanLife
+                </Link>
+                <nav>
+                    <Link to="/about">About</Link>
+                </nav>
+            </header>
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
