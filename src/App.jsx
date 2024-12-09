@@ -3,26 +3,32 @@ import About from "./pages/About";
 import Home from "./pages/Home";
 import Vans from "./pages/Vans";
 import VanDetail from "./pages/VanDetail";
+import Layout from "./components/Layout";
+import Dashboard from "./Host/Dashboard";
+import Reviews from "./Host/Reviews";
+import Income from "./Host/Income";
+import HostLayout from "./components/HostLayout";
+import HostVans from "./Host/HostVans";
+import HostVanDetails from "./Host/HostVanDetails";
 
 function App() {
     return (
         <BrowserRouter>
-            <header>
-                <Link className="site-logo" to="/">
-                    #VanLife
-                </Link>
-                <nav>
-                    <Link to="/about">About</Link>
-                    <Link to="/vans">Vans</Link>
-                </nav>
-            </header>
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/vans" element={<Vans />} />
-                {/* the colon makes the next word act as a key for the
-                 KVP it will generate using the value in the link */}
-                <Route path="/vans/:id" element={<VanDetail />} />
+                <Route path="/" element={<Layout />}>
+                    <Route index element={<Home />} />
+                    <Route path="about" element={<About />} />
+                    <Route path="vans" element={<Vans />} />
+                    <Route path="vans/:id" element={<VanDetail />} />
+
+                    <Route path="host" element={<HostLayout />}>
+                        <Route index element={<Dashboard />} />
+                        <Route path="income" element={<Income />} />
+                        <Route path="reviews" element={<Reviews />} />
+                        <Route path="vans" element={<HostVans />} />
+                        <Route path="vans/:id" element={<HostVanDetails />} />
+                    </Route>
+                </Route>
             </Routes>
         </BrowserRouter>
     );
