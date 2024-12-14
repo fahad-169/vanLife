@@ -87,6 +87,11 @@ createServer({
         this.logging = false;
         // this.timing = 2000  // => mock a 2 second delay in server response
 
+        // MirageJS intercepts all outgoing fetch requests so you will have trouble
+        // talking to an online DB, so make sure to include the following line to
+        // allow firestore requests to pass through.
+        this.passthrough("https://firestore.googleapis.com/**");
+
         this.get("/vans", (schema, request) => {
             // return new Response(400, {}, {error: "Error fetching data"})
             return schema.vans.all();
