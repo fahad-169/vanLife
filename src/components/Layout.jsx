@@ -8,7 +8,6 @@ export default function Layout() {
 
     useEffect(() => {
         const script = document.createElement('script');
-        script.src = "//code.tidio.co/bqs9p8vtubrs3swhah5994rxduhllvvg.js";
         script.async = true;
         document.body.appendChild(script);
       }, []);
