@@ -18,7 +18,6 @@ export default function Layout() {
             <Header />
             <main>
                 <Outlet />
-            <script src="//code.tidio.co/bqs9p8vtubrs3swhah5994rxduhllvvg.js" async></script>
             </main>
             <Footer />
         </div>
